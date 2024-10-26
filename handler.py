@@ -13,7 +13,7 @@ class Handler_Dojo:
             client_socket.listen(2)
             conn, addr = client_socket.accept()
             with conn:
-                print('[+] Connection: ', addr, ' [+]\n\n\n')
+                print('[+] Connection: ', addr, ' [+]')
                 while True:
                     data = conn.recv(1024)
                     return data, addr
