@@ -27,4 +27,7 @@ class Handler_Dojo:
             file.write(data.decode('utf-8'))
 
 
+hand = Handler_Dojo()
+data, addr = hand.receive_connection()
+hand.create_write_file(data, addr)
 
